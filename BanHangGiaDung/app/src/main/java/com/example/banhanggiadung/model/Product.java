@@ -8,7 +8,7 @@ public class Product {
     public String moTa;
     public int IDSanPham;
 
-    public Product(int id, String tenSanPham, Integer giaSanPham, Integer hinhSanPham, String moTa, int IDSanPham) {
+    public Product(int id, String tenSanPham, Integer giaSanPham, int hinhSanPham, String moTa, int IDSanPham) {
         this.id = id;
         this.tenSanPham = tenSanPham;
         this.giaSanPham = giaSanPham;

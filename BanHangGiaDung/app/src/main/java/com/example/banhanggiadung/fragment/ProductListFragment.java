@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.banhanggiadung.R;
+import com.example.banhanggiadung.adapter.CategoryAdapter;
 import com.example.banhanggiadung.adapter.ProductAdapter;
 import com.example.banhanggiadung.model.Product;
 
@@ -20,6 +21,8 @@ import java.util.ArrayList;
 
 public class ProductListFragment extends AbstractFragment {
     private ProductAdapter productAdapter;
+
+    private CategoryAdapter categoryAdapter;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

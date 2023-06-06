@@ -20,7 +20,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.example.banhanggiadung.adapter.ProductAdapter;
 import com.example.banhanggiadung.fragment.AbstractFragment;
@@ -32,6 +34,7 @@ import com.example.banhanggiadung.model.Product;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -40,9 +43,10 @@ public class MainActivity extends AppCompatActivity {
     private int questionId;
     private AbstractFragment fragment = null;
     private BottomNavigationView bottomNavigationView;
-    private ImageButton imageButton;
 
     DrawerLayout drawerLayout;
+
+    ViewFlipper viewFlipper;
 
     private NavigationView navigationView;
 
@@ -86,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
         anhXa();
         //----------ActionBar-------//
         ActionBar();
+        //----------viewFlipper-------//
+//        ActionViewFlipper();
         //----------Set number-------//
 //        createNum(4, 1);
         //------------------------//
@@ -158,6 +164,24 @@ public class MainActivity extends AppCompatActivity {
         tv_screen = findViewById(R.id.tv_screen);
         searchView = findViewById(R.id.action_search);
         toolbar = findViewById(R.id.toolbar);
+        viewFlipper = findViewById(R.id.viewFlipper);
+    }
+
+    private void ActionViewFlipper()
+    {
+        ArrayList<String> mangQuangCao = new ArrayList<>();
+        mangQuangCao.add("https://cdn.tgdd.vn/2021/11/CookDish/cac-loai-do-gia-dung-hien-dai-cho-can-bep-nha-ban-them-tien-avt-1200x676.jpg");
+        mangQuangCao.add("https://giadungsato.com/Uploads/images/giadungsato(2).jpg");
+        mangQuangCao.add("https://ominsu.com.vn/wp-content/uploads/2017/09/Anh-NOI-CHAO-.jpg");
+        for (int i = 0; i< mangQuangCao.size(); i++)
+        {
+            ImageView imageView = new ImageView(getApplicationContext());
+            Picasso.with(getApplicationContext()).load(mangQuangCao.get(i)).into(imageView);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            viewFlipper.addView(imageView);
+        }
+        viewFlipper.setFlipInterval(5000);
+        viewFlipper.setAutoStart(true);
     }
 
     private void updateUI(int abstractFragment) {

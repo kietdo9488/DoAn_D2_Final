@@ -11,10 +11,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ViewFlipper;
 
 import com.example.banhanggiadung.R;
 import com.example.banhanggiadung.adapter.ProductAdapter;
 import com.example.banhanggiadung.model.Product;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -26,7 +29,6 @@ public class HomeFragment extends AbstractFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View fragmentLayout = null;
         fragmentLayout = inflater.inflate(R.layout.home_layout, container, false);
-
 
 
         //
@@ -52,12 +54,7 @@ public class HomeFragment extends AbstractFragment {
         productAdapter.notifyDataSetChanged();
 
 
-
-
-
-
-
-
         return fragmentLayout;
     }
+
 }
