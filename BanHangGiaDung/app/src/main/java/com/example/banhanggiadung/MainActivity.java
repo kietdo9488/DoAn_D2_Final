@@ -1,0 +1,180 @@
+package com.example.banhanggiadung;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.SearchManager;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
+
+import com.example.banhanggiadung.adapter.ProductAdapter;
+import com.example.banhanggiadung.fragment.AbstractFragment;
+import com.example.banhanggiadung.fragment.CartFragment;
+import com.example.banhanggiadung.fragment.HomeFragment;
+import com.example.banhanggiadung.fragment.ProductListFragment;
+import com.example.banhanggiadung.fragment.UserFragment;
+import com.example.banhanggiadung.model.Product;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
+import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
+    private FragmentTransaction transaction;
+    private int questionId;
+    private AbstractFragment fragment = null;
+    private BottomNavigationView bottomNavigationView;
+    private ImageButton imageButton;
+
+    private NavigationView navigationView;
+
+    //----------------------------------
+    private static Activity mainActivitySave;
+
+    //
+    private TextView tv_screen;
+
+    private SearchView searchView;
+
+    private Toolbar toolbar;
+    public static void setMainActivitySave(Activity mainActivitySave) {
+        MainActivity.mainActivitySave = mainActivitySave;
+    }
+
+    public static Activity getMainActivitySave() {
+        return mainActivitySave;
+    }
+    //------------------------------------------
+
+    @SuppressLint("MissingInflatedId")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_layout);
+
+
+
+
+
+        String[] items = {"Item1", "Item2", "Item3"};
+
+
+
+        //gan bien de no con biet duong de tai su dung
+        questionId = 0;
+        //---------Gan gia tri de xai o nhieu noi goi--------
+        MainActivity.setMainActivitySave(MainActivity.this);
+        //-----------Anh xa ------------------
+        anhXa();
+        //----------Set number-------//
+//        createNum(4, 1);
+        //------------------------//
+        //Set default selected
+        updateUI(1);
+//        Click to visiable navigationView left
+//        imageButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                navigationView.;
+//            }
+//        });
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.HOME:
+                        updateUI(1);
+                        tv_screen.setText("Home");
+                        break;
+                    case R.id.PRODUCTLIST:
+                        updateUI(2);
+                        tv_screen.setText("Products");
+                        break;
+                    case R.id.CART:
+                        updateUI(3);
+                        tv_screen.setText("Cart");
+                        break;
+                    case R.id.USER:
+                        updateUI(4);
+                        tv_screen.setText("User");
+                        break;
+                }
+                return true;
+            }
+        });
+
+
+        searchView.setOnSearchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+                searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+                searchView.setMaxWidth(Integer.MIN_VALUE);
+                
+
+            }
+        });
+
+
+    }
+
+    private void anhXa() {
+        imageButton = findViewById(R.id.img_btn_nav_left);
+        bottomNavigationView = findViewById(R.id.bottomnavigation);
+        navigationView = findViewById(R.id.nav_main);
+        tv_screen = findViewById(R.id.tv_screen);
+        searchView = findViewById(R.id.action_search);
+        toolbar = findViewById(R.id.toolbar);
+    }
+
+    private void updateUI(int abstractFragment) {
+        questionId = abstractFragment;
+        if (getSupportFragmentManager().findFragmentByTag(questionId + "") != null) {
+            fragment = (AbstractFragment) getSupportFragmentManager().findFragmentByTag(questionId + "");
+        } else {
+            switch (abstractFragment) {
+                case 1:
+                    Log.d("TAG", "updateUI: 1");
+                    fragment = new HomeFragment();
+                    break;
+                case 2:
+                    Log.d("TAG", "updateUI: 2");
+                    fragment = new ProductListFragment();
+                    break;
+                case 3:
+                    Log.d("TAG", "updateUI: 3");
+                    fragment = new CartFragment();
+                    break;
+                case 4:
+                    Log.d("TAG", "updateUI: 4");
+                    fragment = new UserFragment();
+                    break;
+            }
+        }
+        if (fragment != null) {
+            transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container, fragment, questionId + "");
+            if (getSupportFragmentManager().findFragmentByTag(questionId + "") == null) {
+                transaction.addToBackStack(null);
+            }
+            transaction.commit();
+        }
+    }
+
+
+
+}
