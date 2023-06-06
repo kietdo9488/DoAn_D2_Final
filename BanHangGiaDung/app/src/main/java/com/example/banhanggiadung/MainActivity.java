@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     private AbstractFragment fragment = null;
     private BottomNavigationView bottomNavigationView;
     private ImageButton imageButton;
+
+    DrawerLayout drawerLayout;
 
     private NavigationView navigationView;
 
@@ -80,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.setMainActivitySave(MainActivity.this);
         //-----------Anh xa ------------------
         anhXa();
+        //----------ActionBar-------//
+        ActionBar();
         //----------Set number-------//
 //        createNum(4, 1);
         //------------------------//
@@ -132,8 +138,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void ActionBar()
+    {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationIcon(android.R.drawable.ic_menu_sort_by_size);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+    }
+
     private void anhXa() {
-        imageButton = findViewById(R.id.img_btn_nav_left);
+        drawerLayout = findViewById(R.id.drawerLayout);
         bottomNavigationView = findViewById(R.id.bottomnavigation);
         navigationView = findViewById(R.id.nav_main);
         tv_screen = findViewById(R.id.tv_screen);
