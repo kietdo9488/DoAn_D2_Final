@@ -42,24 +42,23 @@ public class ProductListFragment extends AbstractFragment {
         arrProduct.add(new Product(4, "San pham 4", 1000, R.mipmap.ic_launcher_round, "abc", 4));
 
         ArrayList<Category> arrCategory = new ArrayList<>();
-        arrCategory.add(0, new Category(0, "Home", "https://cdn-icons-png.flaticon.com/512/25/25694.png"));
-        arrCategory.add(1, new Category(1, "Tu lanh", "https://beptukaff.vn/data/news/12357/tu-lanh-side-by-side-dang-multi-door-kaff-kf-bcd446w-1.jpg"));
-        arrCategory.add(2, new Category(2, "May giat", "https://hangdienmaygiare.com/images/products/2023/03/03/large/may-giat-electrolux-ewf1024m3sb-10-kg-inverter_1677819674.jpg"));
-        arrCategory.add(3, new Category(3, "Gia dung", "https://sunhouse.com.vn/pic/product/bo-noi-inox-5-day-sh779-removebg-preview.png"));
+        arrCategory.add(0, new Category(1, "Tu lanh", R.mipmap.ic_launcher_round));
+        arrCategory.add(1, new Category(2, "May giat", R.mipmap.ic_launcher_round));
+        arrCategory.add(2, new Category(3, "Gia dung", R.mipmap.ic_launcher_round));
 
         RecyclerView recyclerViewProductList = fragmentLayout.findViewById(R.id.list_product);
         RecyclerView recyclerViewCategoryList = fragmentLayout.findViewById(R.id.list_category);
 
         //Create Layout manager for category
-//        LinearLayoutManager layoutManagerCategory = new LinearLayoutManager(fragmentLayout.getContext());
-//        layoutManagerCategory.setOrientation(LinearLayoutManager.HORIZONTAL);
+        LinearLayoutManager layoutManagerCategory = new LinearLayoutManager(fragmentLayout.getContext());
+        layoutManagerCategory.setOrientation(LinearLayoutManager.HORIZONTAL);
 
-//        recyclerViewCategoryList.setLayoutManager(layoutManagerCategory);
-//        GridLayoutManager gridLayoutManagerCAtegory = new GridLayoutManager(fragmentLayout.getContext(), 5);
-//        recyclerViewCategoryList.setLayoutManager(gridLayoutManagerCAtegory);
-//        categoryAdapter = new CategoryAdapter((Activity) fragmentLayout.getContext(), R.layout.item_categories, arrCategory);
-//        recyclerViewCategoryList.setAdapter(categoryAdapter);
-//        categoryAdapter.notifyDataSetChanged();
+        recyclerViewCategoryList.setLayoutManager(layoutManagerCategory);
+        GridLayoutManager gridLayoutManagerCAtegory = new GridLayoutManager(fragmentLayout.getContext(), 5);
+        recyclerViewCategoryList.setLayoutManager(gridLayoutManagerCAtegory);
+        categoryAdapter = new CategoryAdapter((Activity) fragmentLayout.getContext(), R.layout.item_categories, arrCategory);
+        recyclerViewCategoryList.setAdapter(categoryAdapter);
+        categoryAdapter.notifyDataSetChanged();
 
         //Create Layout manager for product
         LinearLayoutManager layoutManagerProduct = new LinearLayoutManager(fragmentLayout.getContext());
