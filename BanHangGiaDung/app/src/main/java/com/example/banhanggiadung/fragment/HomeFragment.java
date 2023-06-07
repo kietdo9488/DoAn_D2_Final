@@ -41,10 +41,10 @@ public class HomeFragment extends AbstractFragment {
 
         //Product List Adapter
         ArrayList<Product> arrProduct = new ArrayList<>();
-        arrProduct.add(new Product(1, "San pham 1", 1000, R.mipmap.ic_launcher_round, "abc", 1));
-        arrProduct.add(new Product(2, "San pham 2", 1000, R.mipmap.ic_launcher_round, "abc", 2));
-        arrProduct.add(new Product(3, "San pham 3", 1000, R.mipmap.ic_launcher_round, "abc", 3));
-        arrProduct.add(new Product(4, "San pham 4", 1000, R.mipmap.ic_launcher_round, "abc", 4));
+        arrProduct.add(new Product(1, "Tu lanh", 1000, R.mipmap.tu_lanh, "abc", 1));
+        arrProduct.add(new Product(2, "May giat", 1000, R.mipmap.may_giat, "abc", 2));
+        arrProduct.add(new Product(3, "Cay lau nha 1", 1000, R.mipmap.cay_lau_nha, "abc", 3));
+        arrProduct.add(new Product(4, "Cay lau nha 2", 1000, R.mipmap.cay_lau_nha, "abc", 4));
 
         RecyclerView recyclerView = fragmentLayout.findViewById(R.id.list_product_home);
 
