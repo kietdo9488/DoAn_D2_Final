@@ -30,6 +30,7 @@ import com.example.banhanggiadung.fragment.CartFragment;
 import com.example.banhanggiadung.fragment.HomeFragment;
 import com.example.banhanggiadung.fragment.ProductListFragment;
 import com.example.banhanggiadung.fragment.UserFragment;
+import com.example.banhanggiadung.model.Giohang;
 import com.example.banhanggiadung.model.Product;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     private SearchView searchView;
 
     private Toolbar toolbar;
+    public static ArrayList<Giohang> manggiohang;
     public static void setMainActivitySave(Activity mainActivitySave) {
         MainActivity.mainActivitySave = mainActivitySave;
     }
@@ -165,6 +167,11 @@ public class MainActivity extends AppCompatActivity {
         searchView = findViewById(R.id.action_search);
         toolbar = findViewById(R.id.toolbar);
         viewFlipper = findViewById(R.id.viewFlipper);
+        if (manggiohang != null) {
+
+        } else {
+            manggiohang = new ArrayList<>();
+        }
     }
 
     private void ActionViewFlipper()
