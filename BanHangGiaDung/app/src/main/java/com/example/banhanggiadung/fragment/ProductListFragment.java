@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.banhanggiadung.R;
 import com.example.banhanggiadung.adapter.CategoryAdapter;
 import com.example.banhanggiadung.adapter.ProductAdapter;
+import com.example.banhanggiadung.model.Category;
 import com.example.banhanggiadung.model.Product;
 
 import java.util.ArrayList;
@@ -40,18 +41,35 @@ public class ProductListFragment extends AbstractFragment {
         arrProduct.add(new Product(3, "San pham 3", 1000, R.mipmap.ic_launcher_round, "abc", 3));
         arrProduct.add(new Product(4, "San pham 4", 1000, R.mipmap.ic_launcher_round, "abc", 4));
 
-        RecyclerView recyclerView = fragmentLayout.findViewById(R.id.list_product);
+        ArrayList<Category> arrCategory = new ArrayList<>();
+        arrCategory.add(0, new Category(0, "Home", "https://cdn-icons-png.flaticon.com/512/25/25694.png"));
+        arrCategory.add(1, new Category(1, "Tu lanh", "https://beptukaff.vn/data/news/12357/tu-lanh-side-by-side-dang-multi-door-kaff-kf-bcd446w-1.jpg"));
+        arrCategory.add(2, new Category(2, "May giat", "https://hangdienmaygiare.com/images/products/2023/03/03/large/may-giat-electrolux-ewf1024m3sb-10-kg-inverter_1677819674.jpg"));
+        arrCategory.add(3, new Category(3, "Gia dung", "https://sunhouse.com.vn/pic/product/bo-noi-inox-5-day-sh779-removebg-preview.png"));
 
+        RecyclerView recyclerViewProductList = fragmentLayout.findViewById(R.id.list_product);
+        RecyclerView recyclerViewCategoryList = fragmentLayout.findViewById(R.id.list_category);
 
-        //Create Layout manager
-        LinearLayoutManager layoutManager = new LinearLayoutManager(fragmentLayout.getContext());
-        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        //Create Layout manager for category
+//        LinearLayoutManager layoutManagerCategory = new LinearLayoutManager(fragmentLayout.getContext());
+//        layoutManagerCategory.setOrientation(LinearLayoutManager.HORIZONTAL);
 
-        recyclerView.setLayoutManager(layoutManager);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(fragmentLayout.getContext(), 2);
-        recyclerView.setLayoutManager(gridLayoutManager);
+//        recyclerViewCategoryList.setLayoutManager(layoutManagerCategory);
+//        GridLayoutManager gridLayoutManagerCAtegory = new GridLayoutManager(fragmentLayout.getContext(), 5);
+//        recyclerViewCategoryList.setLayoutManager(gridLayoutManagerCAtegory);
+//        categoryAdapter = new CategoryAdapter((Activity) fragmentLayout.getContext(), R.layout.item_categories, arrCategory);
+//        recyclerViewCategoryList.setAdapter(categoryAdapter);
+//        categoryAdapter.notifyDataSetChanged();
+
+        //Create Layout manager for product
+        LinearLayoutManager layoutManagerProduct = new LinearLayoutManager(fragmentLayout.getContext());
+        layoutManagerProduct.setOrientation(LinearLayoutManager.HORIZONTAL);
+
+        recyclerViewProductList.setLayoutManager(layoutManagerProduct);
+        GridLayoutManager gridLayoutManagerProduct = new GridLayoutManager(fragmentLayout.getContext(), 2);
+        recyclerViewProductList.setLayoutManager(gridLayoutManagerProduct);
         productAdapter = new ProductAdapter((Activity) fragmentLayout.getContext(), R.layout.item_products, arrProduct);
-        recyclerView.setAdapter(productAdapter);
+        recyclerViewProductList.setAdapter(productAdapter);
         productAdapter.notifyDataSetChanged();
 
         return fragmentLayout;
