@@ -39,6 +39,13 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_search, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
     private FragmentTransaction transaction;
     private int questionId;
     private AbstractFragment fragment = null;
@@ -140,6 +147,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
 
 
     }
