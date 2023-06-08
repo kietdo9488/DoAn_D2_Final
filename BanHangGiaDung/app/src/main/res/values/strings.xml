@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">RemakeFragment2023</string>
     <string name="action_search">Search...</string>
+    <string-array name="strsearch">
+        <item>tu lanh</item>
+        <item>tu lanh sieu lanh</item>
+        <item>yasuo</item>
+        <item>xong noi</item>
+        <item>dien thoa</item>
+    </string-array>
+   
 </resources>
