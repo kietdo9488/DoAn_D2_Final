@@ -17,8 +17,6 @@ import java.util.ArrayList;
 
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHolder> {
-
-
     private Activity activity;
     private int layoutID;
     private ArrayList<Product> productList;
