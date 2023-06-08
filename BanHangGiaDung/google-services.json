@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1064630609393",
+    "project_id": "fbase-ad2",
+    "storage_bucket": "fbase-ad2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1064630609393:android:374f0142713c6bdcd6d050",
+        "android_client_info": {
+          "package_name": "com.example.banhanggiadung"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1064630609393-a1dejb174c7oqru01b5ncb65tthirc48.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3OMAFhBP-_1K2KlR0UJ6ljCnzaYPJnEA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1064630609393-a1dejb174c7oqru01b5ncb65tthirc48.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
