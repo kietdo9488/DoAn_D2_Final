@@ -46,6 +46,7 @@ public class ProductListFragment extends AbstractFragment {
         arrCategory.add(1, new Category(2, "May giat", R.mipmap.may_giat));
         arrCategory.add(2, new Category(3, "Gia dung", R.mipmap.cay_lau_nha));
 
+
         RecyclerView recyclerViewProductList = fragmentLayout.findViewById(R.id.list_product);
         RecyclerView recyclerViewCategoryList = fragmentLayout.findViewById(R.id.list_category);
 
