@@ -7,30 +7,28 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
-import com.example.banhanggiadung.adapter.ProductAdapter;
+import com.example.banhanggiadung.CRUD.ManageCategory;
+import com.example.banhanggiadung.adapter.CategoryAdapterKiet;
 import com.example.banhanggiadung.fragment.AbstractFragment;
 import com.example.banhanggiadung.fragment.CartFragment;
 import com.example.banhanggiadung.fragment.HomeFragment;
 import com.example.banhanggiadung.fragment.ProductListFragment;
 import com.example.banhanggiadung.fragment.UserFragment;
-import com.example.banhanggiadung.model.Product;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
@@ -67,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
     private SearchView searchView;
 
     private Toolbar toolbar;
+
+//    fields fragment
+private CategoryAdapterKiet categoryAdapterKiet;
     public static void setMainActivitySave(Activity mainActivitySave) {
         MainActivity.mainActivitySave = mainActivitySave;
     }
@@ -83,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_layout);
 
 
+        navigationView = findViewById(R.id.nav_main);
 
 
 
@@ -131,6 +133,22 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.USER:
                         updateUI(4);
                         tv_screen.setText("User");
+                        break;
+                }
+                return true;
+            }
+        });
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.nav_product_management1:
+                        Intent intent = new Intent(getApplicationContext() , ManageCategory.class );
+                        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        startActivity(intent);
+                        break;
+                    default:
                         break;
                 }
                 return true;
@@ -227,7 +245,6 @@ public class MainActivity extends AppCompatActivity {
             transaction.commit();
         }
     }
-
 
 
 }
