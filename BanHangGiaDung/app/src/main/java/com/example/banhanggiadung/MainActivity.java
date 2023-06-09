@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentTransaction transaction;
     private int questionId;
     private AbstractFragment fragment = null;
+    private AppCompatActivity fragmentUser = null;
     private BottomNavigationView bottomNavigationView;
 
     DrawerLayout drawerLayout;
@@ -235,7 +236,7 @@ private CategoryAdapterKiet categoryAdapterKiet;
                     break;
                 case 4:
                     Log.d("TAG", "updateUI: 4");
-                    fragment = new UserFragment();
+                    fragmentUser = new UserFragment();
                     break;
             }
         }
