@@ -22,7 +22,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
-import com.example.banhanggiadung.CRUD.ManageCategory;
 import com.example.banhanggiadung.adapter.CategoryAdapterKiet;
 import com.example.banhanggiadung.fragment.AbstractFragment;
 import com.example.banhanggiadung.fragment.CartFragment;
@@ -143,10 +142,29 @@ private CategoryAdapterKiet categoryAdapterKiet;
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.nav_product_management1:
-                        Intent intent = new Intent(getApplicationContext() , ManageCategory.class );
-                        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                        startActivity(intent);
+                    case R.id.nav_product_management:
+//                        Log.d("Tag", "Lay man hinh thanh cong");
+                        Intent intentProductManage = new Intent(getApplicationContext() , ManageProduct.class );
+                        intentProductManage.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        startActivity(intentProductManage);
+                        break;
+                    case R.id.nav_category_management:
+//                        Log.d("Tag", ""+item.getItemId());
+                        Intent intentCategoryManage = new Intent(getApplicationContext(), ManageCategory.class);
+                        intentCategoryManage.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        startActivity(intentCategoryManage);
+                        break;
+                    case R.id.nav_user_management:
+//                        Log.d("Tag", ""+item.getItemId());
+                        Intent intentUserManage = new Intent(getApplicationContext(), ManageUser.class);
+                        intentUserManage.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        startActivity(intentUserManage);
+                        break;
+                    case R.id.nav_logout:
+//                        Log.d("Tag", ""+item.getItemId());
+//                        Intent intentUserManage = new Intent(getApplicationContext(), ManageCategory.class);
+//                        intentUserManage.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+//                        startActivity(intentUserManage);
                         break;
                     default:
                         break;
@@ -245,6 +263,4 @@ private CategoryAdapterKiet categoryAdapterKiet;
             transaction.commit();
         }
     }
-
-
 }

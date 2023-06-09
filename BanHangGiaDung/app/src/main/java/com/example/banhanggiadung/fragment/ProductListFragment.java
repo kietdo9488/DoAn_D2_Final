@@ -107,9 +107,9 @@ public class ProductListFragment extends AbstractFragment {
         categoryAdapterKiet = new CategoryAdapterKiet(optionsCategory);
 
         LinearLayoutManager layoutManagerCategory = new LinearLayoutManager(fragmentLayout.getContext());
-        layoutManagerProduct.setOrientation(LinearLayoutManager.HORIZONTAL);
+        layoutManagerCategory.setOrientation(LinearLayoutManager.HORIZONTAL);
         GridLayoutManager gridLayoutManagerCategory = new GridLayoutManager(fragmentLayout.getContext(), 4);
-        recyclerViewCategoryList.setLayoutManager(layoutManagerProduct);
+        recyclerViewCategoryList.setLayoutManager(layoutManagerCategory);
         recyclerViewCategoryList.setLayoutManager(gridLayoutManagerCategory);
         recyclerViewCategoryList.setAdapter(categoryAdapterKiet);
         getListCategoriesFromDatabase();
