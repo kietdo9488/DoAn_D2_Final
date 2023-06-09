@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "366257733119",
+    "firebase_url": "https://banhanggiadung-c2738-default-rtdb.firebaseio.com",
+    "project_id": "banhanggiadung-c2738",
+    "storage_bucket": "banhanggiadung-c2738.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366257733119:android:c60c75ee7108f1c3d8fbca",
+        "android_client_info": {
+          "package_name": "com.example.banhanggiadung"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366257733119-8um3sl9abmdmmcfn2vjuf86plfivhphq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0JMRglB36z4T2SChxYVV0a51qEk5-o2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366257733119-8um3sl9abmdmmcfn2vjuf86plfivhphq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
