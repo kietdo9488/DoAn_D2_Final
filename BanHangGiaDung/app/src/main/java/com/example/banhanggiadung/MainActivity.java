@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,7 +20,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.example.banhanggiadung.adapter.ProductAdapter;
 import com.example.banhanggiadung.fragment.AbstractFragment;
@@ -30,15 +34,26 @@ import com.example.banhanggiadung.model.Product;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_search, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
     private FragmentTransaction transaction;
     private int questionId;
     private AbstractFragment fragment = null;
     private BottomNavigationView bottomNavigationView;
-    private ImageButton imageButton;
+
+    DrawerLayout drawerLayout;
+
+    ViewFlipper viewFlipper;
 
     private NavigationView navigationView;
 
@@ -80,6 +95,10 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.setMainActivitySave(MainActivity.this);
         //-----------Anh xa ------------------
         anhXa();
+        //----------ActionBar-------//
+        ActionBar();
+        //----------viewFlipper-------//
+//        ActionViewFlipper();
         //----------Set number-------//
 //        createNum(4, 1);
         //------------------------//
@@ -130,15 +149,48 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+
+    }
+
+    private void ActionBar()
+    {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationIcon(android.R.drawable.ic_menu_sort_by_size);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
     }
 
     private void anhXa() {
-        imageButton = findViewById(R.id.img_btn_nav_left);
+        drawerLayout = findViewById(R.id.drawerLayout);
         bottomNavigationView = findViewById(R.id.bottomnavigation);
         navigationView = findViewById(R.id.nav_main);
         tv_screen = findViewById(R.id.tv_screen);
         searchView = findViewById(R.id.action_search);
         toolbar = findViewById(R.id.toolbar);
+        viewFlipper = findViewById(R.id.viewFlipper);
+    }
+
+    private void ActionViewFlipper()
+    {
+        ArrayList<String> mangQuangCao = new ArrayList<>();
+        mangQuangCao.add("https://cdn.tgdd.vn/2021/11/CookDish/cac-loai-do-gia-dung-hien-dai-cho-can-bep-nha-ban-them-tien-avt-1200x676.jpg");
+        mangQuangCao.add("https://giadungsato.com/Uploads/images/giadungsato(2).jpg");
+        mangQuangCao.add("https://ominsu.com.vn/wp-content/uploads/2017/09/Anh-NOI-CHAO-.jpg");
+        for (int i = 0; i< mangQuangCao.size(); i++)
+        {
+            ImageView imageView = new ImageView(getApplicationContext());
+            Picasso.with(getApplicationContext()).load(mangQuangCao.get(i)).into(imageView);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            viewFlipper.addView(imageView);
+        }
+        viewFlipper.setFlipInterval(5000);
+        viewFlipper.setAutoStart(true);
     }
 
     private void updateUI(int abstractFragment) {
