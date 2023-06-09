@@ -1,21 +1,14 @@
 package com.example.banhanggiadung.model;
 
 public class Product {
-    public int id;
-    public String tenSanPham;
-    public Integer giaSanPham;
-    public int hinhSanPham;
-    public String moTa;
-    public int IDSanPham;
 
-    public Product(int id, String tenSanPham, Integer giaSanPham, int hinhSanPham, String moTa, int IDSanPham) {
-        this.id = id;
-        this.tenSanPham = tenSanPham;
-        this.giaSanPham = giaSanPham;
-        this.hinhSanPham = hinhSanPham;
-        this.moTa = moTa;
-        this.IDSanPham = IDSanPham;
-    }
+
+
+    int id;
+    String name;
+    int price;
+    String image;
+
 
     public int getId() {
         return id;
@@ -25,43 +18,56 @@ public class Product {
         this.id = id;
     }
 
-    public String getTenSanPham() {
-        return tenSanPham;
+    public String getName() {
+        return name;
     }
 
-    public void setTenSanPham(String tenSanPham) {
-        this.tenSanPham = tenSanPham;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Integer getGiaSanPham() {
-        return giaSanPham;
+    public int getPrice() {
+        return price;
     }
 
-    public void setGiaSanPham(Integer giaSanPham) {
-        this.giaSanPham = giaSanPham;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public int getHinhSanPham() {
-        return hinhSanPham;
+    public String getImage() {
+        return image;
     }
 
-    public void setHinhSanPham(int hinhSanPham) {
-        this.hinhSanPham = hinhSanPham;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public String getMoTa() {
-        return moTa;
+
+
+
+
+    public Product() {
     }
 
-    public void setMoTa(String moTa) {
-        this.moTa = moTa;
+    public Product(int id, String name, int price, String image, String description, int category_id) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.image = image;
+//        this.description = description;
+//        this.category_id = category_id;
     }
 
-    public int getIDSanPham() {
-        return IDSanPham;
+    @Override
+    public String toString() {
+        return "Product{" +
+//                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", image='" + image + '\'' +
+//                ", description='" + description + '\'' +
+//                ", category_id=" + category_id +
+                '}';
     }
 
-    public void setIDSanPham(int IDSanPham) {
-        this.IDSanPham = IDSanPham;
-    }
 }
