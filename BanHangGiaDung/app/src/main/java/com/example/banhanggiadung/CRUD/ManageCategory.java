@@ -1,8 +1,10 @@
-package com.example.banhanggiadung;
+package com.example.banhanggiadung.CRUD;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.banhanggiadung.R;
 
 public class ManageCategory extends AppCompatActivity {
 
