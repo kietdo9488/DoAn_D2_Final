@@ -53,7 +53,7 @@ public class HomeFragment extends AbstractFragment {
         recyclerView = fragmentLayout.findViewById(R.id.list_product_home);
         recyclerView.setLayoutManager(new LinearLayoutManager(fragmentLayout.getContext()));
 
-                FirebaseRecyclerOptions<Product> options =
+        FirebaseRecyclerOptions<Product> options =
                 new FirebaseRecyclerOptions.Builder<Product>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("products"), Product.class)
                         .build();
@@ -93,6 +93,7 @@ public class HomeFragment extends AbstractFragment {
     public void onStart() {
         super.onStart();
         homeAdapter.startListening();
+
     }
 
     @Override

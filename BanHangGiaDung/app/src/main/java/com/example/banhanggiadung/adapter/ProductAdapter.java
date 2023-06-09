@@ -21,7 +21,7 @@ import java.util.List;
 
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHolder> {
-//    private Activity activity;
+    //    private Activity activity;
 //    private int layoutID;
     private List<Product> productList;
 

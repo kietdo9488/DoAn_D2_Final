@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">RemakeFragment2023</string>
     <string name="action_search">Search...</string>
+    <string name="phone">Phone</string>
+    <string name="email">Email</string>
+    <string name="username">Username</string>
+    <string name="ng_k">Đăng Ký</string>
+    <string name="ng_nh_p">Đăng Nhập</string>
+    <string name="password">Password</string>
     <string-array name="strsearch">
         <item>tu lanh</item>
         <item>tu lanh sieu lanh</item>
@@ -8,5 +14,5 @@
         <item>xong noi</item>
         <item>dien thoa</item>
     </string-array>
-   
+
 </resources>
