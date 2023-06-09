@@ -103,14 +103,12 @@ public class LoginActivity extends AppCompatActivity {
 
                         //truyen du lieu bang pass
                         String usernameFromDB = snapshot.child(userUsername).child("userName").getValue(String.class);
-//                        String nameFromDB = snapshot.child(userUsername).child("name").getValue(String.class);
                         String emailFromDB = snapshot.child(userUsername).child("email").getValue(String.class);
                         String phonelFromDB = snapshot.child(userUsername).child("phone").getValue(String.class);
 
                         Intent intent = new Intent(LoginActivity.this, UserFragment.class);
 
                         intent.putExtra("userName", usernameFromDB);
-//                        intent.putExtra("name", nameFromDB);
                         intent.putExtra("email", emailFromDB);
                         intent.putExtra("phone", phonelFromDB);
                         intent.putExtra("password", passwordFromDB);
