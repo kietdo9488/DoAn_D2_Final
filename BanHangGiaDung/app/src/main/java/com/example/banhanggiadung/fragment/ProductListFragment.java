@@ -24,6 +24,9 @@ public class ProductListFragment extends AbstractFragment {
     private ProductAdapter productAdapter;
 
     private CategoryAdapter categoryAdapter;
+
+    private int selectedRow = -1;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -61,6 +64,22 @@ public class ProductListFragment extends AbstractFragment {
         recyclerViewCategoryList.setAdapter(categoryAdapter);
         categoryAdapter.notifyDataSetChanged();
 
+        categoryAdapter.setOnrecycleViewItemClickListener(new CategoryAdapter.OnrecycleViewItemClickListener() {
+            @Override
+            public void onItemClickListener(int position, View Card) {
+                if (selectedRow == -1) {
+                    selectedRow = position;
+                    setPersonToLayout(listMembers.get(position));
+
+                    LinearLayout bgrItem = CardView.findViewById(R.id.bgrListItem);
+                    // Save the original color of back ground
+                    backColor = bgrItem.getSolidColor();
+                    bgrItem.setBackgroundColor(getResources().getColor(R.color.selectedRow, getTheme()));
+                    previousItemGround = bgrItem;
+                }
+            }
+        });
+
         //Create Layout manager for product
         LinearLayoutManager layoutManagerProduct = new LinearLayoutManager(fragmentLayout.getContext());
         layoutManagerProduct.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -73,6 +92,33 @@ public class ProductListFragment extends AbstractFragment {
         productAdapter.notifyDataSetChanged();
 
         return fragmentLayout;
+
+    }
+
+    private void setCategoryToLayout(Category category) {
+        edtName.setText(person.getName());
+        if (person.getDegree().equalsIgnoreCase(DAIHOC)) {
+            radUniversity.setChecked(true);
+        } else if (person.getDegree().equalsIgnoreCase(CAODANG)) {
+            radCollege.setChecked(true);
+        } else if (person.getDegree().equalsIgnoreCase(TRUNGCAP)) {
+            radTraing.setChecked(true);
+        }
+
+        StringTokenizer tokenizer = new StringTokenizer(person.getHobbies());
+        String other = "";
+        if (person.getHobbies().contains(chkRead.getText().toString())) {
+            chkRead.setChecked(true);
+            tokenizer.nextToken(";");
+        }
+        if (person.getHobbies().contains(chkTravel.getText().toString())) {
+            chkTravel.setChecked(true);
+            tokenizer.nextToken(";");
+        }
+        if (tokenizer.hasMoreTokens()) {
+            other = tokenizer.nextToken(";");
+            edtHoppies.setText(other);
+        }
 
     }
 }

@@ -26,6 +26,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
     private int layoutID;
     private ArrayList<Category> categoryList;
 
+    //B2 co che uy quyen
+    private OnrecycleViewItemClickListener  onrecycleViewItemClickListener;
+
     public CategoryAdapter(Activity activity, int layoutID, ArrayList<Category> categoryList) {
         this.activity = activity;
         this.layoutID = layoutID;
@@ -47,6 +50,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
 //        holder.imgProduct.setImageResource(img);
         holder.imgCategory.setImageDrawable(activity.getResources().getDrawable(img, activity.getTheme()));
         holder.name_category.setText(name);
+
     }
 
     @Override
@@ -70,6 +74,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
     public int getItemViewType(int position) {
         return layoutID;
 
+    }
+
+    public interface OnrecycleViewItemClickListener {
+        public void onItemClickListener(int position,View Card);
+    }
+
+    //B4 co che uy quyen
+    public void setOnrecycleViewItemClickListener(OnrecycleViewItemClickListener onrecycleViewItemClickListener) {
+        this.onrecycleViewItemClickListener = onrecycleViewItemClickListener;
     }
 
 
