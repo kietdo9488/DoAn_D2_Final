@@ -199,14 +199,14 @@ public class ProductListFragment extends AbstractFragment {
     public void onStart() {
         super.onStart();
         homeAdapter.startListening();
-//        categoryAdapterKiet.startListening();
+        categoryAdapterKiet.startListening();
     }
 
     @Override
     public void onStop() {
         super.onStop();
         homeAdapter.stopListening();
-//        categoryAdapterKiet.stopListening();
+        categoryAdapterKiet.stopListening();
     }
 
     //    public static ArrayList<Product> getID(int id) {

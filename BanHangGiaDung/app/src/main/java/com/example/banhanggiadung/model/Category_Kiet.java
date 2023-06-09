@@ -3,9 +3,9 @@ package com.example.banhanggiadung.model;
 public class Category_Kiet {
      int id;
      String category_name;
-     int category_img;
+     String category_img;
 
-    public Category_Kiet(int id, String category_name, int category_img) {
+    public Category_Kiet(int id, String category_name, String category_img) {
         this.id = id;
         this.category_name = category_name;
         this.category_img = category_img;
@@ -40,11 +40,11 @@ public class Category_Kiet {
         this.category_name = category_name;
     }
 
-    public int getCategory_img() {
+    public String getCategory_img() {
         return category_img;
     }
 
-    public void setCategory_img(int category_img) {
+    public void setCategory_img(String category_img) {
         this.category_img = category_img;
     }
 }
