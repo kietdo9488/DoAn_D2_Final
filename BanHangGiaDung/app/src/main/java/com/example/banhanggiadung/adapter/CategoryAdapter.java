@@ -72,8 +72,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgCategory = itemView.findViewById(R.id.img_category);
-            name_category = itemView.findViewById(R.id.tv_name_category);
+            imgCategory = itemView.findViewById(R.id.category_img);
+            name_category = itemView.findViewById(R.id.category_name);
 
             imgCategory.setOnClickListener(this);
             name_category.setOnClickListener(this);

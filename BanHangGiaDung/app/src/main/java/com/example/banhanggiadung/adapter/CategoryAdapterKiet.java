@@ -15,6 +15,8 @@ import com.example.banhanggiadung.model.Category_Kiet;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
+import java.nio.InvalidMarkException;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CategoryAdapterKiet extends FirebaseRecyclerAdapter<Category_Kiet,CategoryAdapterKiet.myViewHolder> {
@@ -32,7 +34,7 @@ public class CategoryAdapterKiet extends FirebaseRecyclerAdapter<Category_Kiet,C
     protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull Category_Kiet model) {
         holder.category_name.setText(model.getCategory_name());
 
-        Glide.with(holder.category_img.getContext()).load(model.getCategory_image()).placeholder(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark).circleCrop().error(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark_normal).into(holder.category_img);
+        Glide.with(holder.category_img.getContext()).load(model.getCategory_img()).placeholder(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark).circleCrop().error(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark_normal).into(holder.category_img);
     }
 
     @NonNull
@@ -43,14 +45,14 @@ public class CategoryAdapterKiet extends FirebaseRecyclerAdapter<Category_Kiet,C
     }
 
     class myViewHolder extends RecyclerView.ViewHolder{
-        CircleImageView category_img;
+        ImageView category_img;
         TextView category_name;
 
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            category_img = (CircleImageView) itemView.findViewById(R.id.category_image);
+            category_img = (ImageView) itemView.findViewById(R.id.category_img);
             category_name = (TextView) itemView.findViewById(R.id.category_name);
         }
     }

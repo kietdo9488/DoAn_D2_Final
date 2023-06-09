@@ -1,18 +1,27 @@
 package com.example.banhanggiadung.model;
 
 public class Category_Kiet {
-    private int id;
-    private String category_name;
-    private int category_image;
+     int id;
+     String category_name;
+     int category_img;
 
-    public Category_Kiet(int id, String category_name, int category_image) {
+    public Category_Kiet(int id, String category_name, int category_img) {
         this.id = id;
         this.category_name = category_name;
-        this.category_image = category_image;
+        this.category_img = category_img;
     }
 
     public Category_Kiet() {
 
+    }
+
+    @Override
+    public String toString() {
+        return "Category_Kiet{" +
+                "id=" + id +
+                ", category_name='" + category_name + '\'' +
+                ", category_img=" + category_img +
+                '}';
     }
 
     public int getId() {
@@ -31,11 +40,11 @@ public class Category_Kiet {
         this.category_name = category_name;
     }
 
-    public int getCategory_image() {
-        return category_image;
+    public int getCategory_img() {
+        return category_img;
     }
 
-    public void setCategory_image(int category_image) {
-        this.category_image = category_image;
+    public void setCategory_img(int category_img) {
+        this.category_img = category_img;
     }
 }
