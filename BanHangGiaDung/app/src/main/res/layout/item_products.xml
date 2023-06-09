@@ -44,6 +44,12 @@
                 android:text="100000">
 
             </TextView>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add to Cart"
+                android:id="@+id/btnaddtocart"
+                />
         </LinearLayout>
     </RelativeLayout>
 
