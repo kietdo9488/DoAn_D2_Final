@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
 public class RegisterActivity extends AppCompatActivity {
 
     //tao doi tuong
-    private EditText signupUsername, signupName, signupEmail, sigunpPhone, signupPassword;
+    private EditText signupUsername, signupEmail, sigunpPhone, signupPassword;
     private TextView loginRedirectText;
     private Button signupButton;
     //tao doi tuong kiem tra
