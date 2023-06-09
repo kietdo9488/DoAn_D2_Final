@@ -5,21 +5,21 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_product_management1"
+            android:id="@+id/nav_product_management"
             android:icon="@drawable/baseline_verified_user_24"
-            android:title="User management" />
+            android:title="Manage Product" />
         <item
-            android:id="@+id/nav_product_management2"
+            android:id="@+id/nav_category_management"
             android:icon="@drawable/baseline_verified_user_24"
-            android:title="User management" />
+            android:title="Manage Category" />
         <item
-            android:id="@+id/nav_product_management3"
+            android:id="@+id/nav_user_management"
             android:icon="@drawable/baseline_verified_user_24"
-            android:title="User management" />
+            android:title="Manage User" />
         <item
-            android:id="@+id/nav_product_management4"
+            android:id="@+id/nav_logout"
             android:icon="@drawable/baseline_verified_user_24"
-            android:title="User management" />
+            android:title="Logout" />
 
     </group>
 </menu>
