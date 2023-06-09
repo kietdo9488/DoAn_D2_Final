@@ -14,6 +14,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -86,6 +87,7 @@ private CategoryAdapterKiet categoryAdapterKiet;
         setContentView(R.layout.main_layout);
 
 
+        navigationView = findViewById(R.id.nav_main);
 
 
 
@@ -134,6 +136,22 @@ private CategoryAdapterKiet categoryAdapterKiet;
                     case R.id.USER:
                         updateUI(4);
                         tv_screen.setText("User");
+                        break;
+                }
+                return true;
+            }
+        });
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.nav_product_management1:
+                        Intent intent = new Intent(getApplicationContext() , ManageCategory.class );
+                        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        startActivity(intent);
+                        break;
+                    default:
                         break;
                 }
                 return true;
@@ -230,4 +248,6 @@ private CategoryAdapterKiet categoryAdapterKiet;
             transaction.commit();
         }
     }
+
+
 }
