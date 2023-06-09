@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import com.example.banhanggiadung.adapter.CategoryAdapterKiet;
 import com.example.banhanggiadung.adapter.ProductAdapter;
 import com.example.banhanggiadung.fragment.AbstractFragment;
 import com.example.banhanggiadung.fragment.CartFragment;
@@ -66,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
     private SearchView searchView;
 
     private Toolbar toolbar;
+
+//    fields fragment
+private CategoryAdapterKiet categoryAdapterKiet;
     public static void setMainActivitySave(Activity mainActivitySave) {
         MainActivity.mainActivitySave = mainActivitySave;
     }
@@ -226,7 +230,4 @@ public class MainActivity extends AppCompatActivity {
             transaction.commit();
         }
     }
-
-
-
 }

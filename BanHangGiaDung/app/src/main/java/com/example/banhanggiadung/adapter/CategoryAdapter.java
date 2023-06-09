@@ -2,6 +2,7 @@ package com.example.banhanggiadung.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.banhanggiadung.R;
+import com.example.banhanggiadung.fragment.ProductListFragment;
 import com.example.banhanggiadung.model.Category;
 import com.example.banhanggiadung.model.Product;
 import com.squareup.picasso.Picasso;
@@ -42,11 +44,19 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        Category category = categoryList.get(position);
         int img = categoryList.get(position).getCategory_image();
         String name = String.valueOf(categoryList.get(position).getCategory_name());
 //        holder.imgProduct.setImageResource(img);
         holder.imgCategory.setImageDrawable(activity.getResources().getDrawable(img, activity.getTheme()));
         holder.name_category.setText(name);
+
+        holder.onClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ProductListFragment.getID(category.getId());
+            };
+        };
     }
 
     @Override
@@ -55,14 +65,26 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
     }
 
 
-    protected static class MyViewHolder extends RecyclerView.ViewHolder {
+    protected static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView imgCategory;
         TextView name_category;
+        View.OnClickListener onClickListener;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             imgCategory = itemView.findViewById(R.id.img_category);
             name_category = itemView.findViewById(R.id.tv_name_category);
+
+            imgCategory.setOnClickListener(this);
+            name_category.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (onClickListener != null) {
+                onClickListener.onClick(view);
+
+            }
         }
     }
 
@@ -71,6 +93,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
         return layoutID;
 
     }
+
+    
 
 
 //-------------Old Adapter---------------//
