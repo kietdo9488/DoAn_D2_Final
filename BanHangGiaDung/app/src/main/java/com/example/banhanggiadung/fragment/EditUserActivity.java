@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.banhanggiadung.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 public class EditUserActivity extends AppCompatActivity {
     //tao doi tuong
@@ -26,8 +27,8 @@ public class EditUserActivity extends AppCompatActivity {
         //goi filebase de lay doi tuong user
         reference = FirebaseDatabase.getInstance().getReference("users");
 
-        editEmail = findViewById(R.id.editEmail);
         editUsername = findViewById(R.id.editUsername);
+        editEmail = findViewById(R.id.editEmail);
         editPassword = findViewById(R.id.editPassword);
         saveButton = findViewById(R.id.saveButton);
         showData();
@@ -46,7 +47,10 @@ public class EditUserActivity extends AppCompatActivity {
     //ham hay doi ten nguoi dung
     public boolean isUserNameChanged(){
         if (!nameUser.equals(editName.getText().toString())){
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
+            Query checkUserDatabase = reference.orderByChild("userName").equalTo(nameUser);
             reference.child(usernameUser).child("userName").setValue(editUsername.getText().toString());
+            reference.child(usernameUser).child(checkUserDatabase.toString()).setValue(editUsername.getText().toString());
             usernameUser = editUsername.getText().toString();
             return true;
         } else{
