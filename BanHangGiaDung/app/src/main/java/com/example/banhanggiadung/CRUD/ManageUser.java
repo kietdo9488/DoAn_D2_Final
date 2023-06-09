@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.banhanggiadung.R;
+
 public class ManageUser extends AppCompatActivity {
 
     @Override
