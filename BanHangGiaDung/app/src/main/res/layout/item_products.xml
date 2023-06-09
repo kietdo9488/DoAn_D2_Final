@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#0500fc">
 
-       <FrameLayout
+       <RelativeLayout
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:background="#0500fc">
@@ -23,10 +23,11 @@
                <ImageView
                    android:id="@+id/img_product"
                    android:layout_width="100dp"
-                   android:layout_height="100dp"></ImageView>
+                   android:layout_height="100dp"
+                   android:src="@mipmap/ic_launcher"></ImageView>
 
                <TextView
-                   android:id="@+id/tv_name_product"
+                   android:id="@+id/name_product"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:gravity="center"
@@ -35,14 +36,15 @@
                    android:textSize="20sp"></TextView>
 
                <TextView
-                   android:id="@+id/tv_price_product"
+                   android:id="@+id/price_product"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:textColor="#f20"
-                   android:textSize="17sp">
+                   android:textSize="17sp"
+                   android:text="100000">
 
                </TextView>
            </LinearLayout>
-       </FrameLayout>
+       </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
