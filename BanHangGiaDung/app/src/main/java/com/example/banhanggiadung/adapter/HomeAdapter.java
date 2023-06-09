@@ -1,5 +1,6 @@
 package com.example.banhanggiadung.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,10 @@ public class HomeAdapter extends FirebaseRecyclerAdapter<Product, HomeAdapter.my
                 .circleCrop()
                 .error(com.google.firebase.database.R.drawable.common_google_signin_btn_icon_dark_normal)
                 .into(holder.img);
+
+
+
+
     }
 
     @NonNull
@@ -56,4 +61,6 @@ public class HomeAdapter extends FirebaseRecyclerAdapter<Product, HomeAdapter.my
             price = (TextView) itemView.findViewById(R.id.price_product);
         }
     }
+
+
 }
