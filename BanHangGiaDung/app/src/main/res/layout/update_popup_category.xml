@@ -18,13 +18,11 @@
         android:layout_height="wrap_content"
         android:text="Category name"
         android:textSize="20sp"
-        android:layout_margin="5dp"
         android:gravity="center"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:layout_margin="10dp"
         android:background="@drawable/rounded_manage_category"
         android:gravity="center"
         android:id="@+id/txt_category_name"/>
@@ -34,13 +32,11 @@
         android:layout_height="wrap_content"
         android:text="Category image"
         android:textSize="20sp"
-        android:layout_margin="5dp"
         android:gravity="center"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:layout_margin="10dp"
         android:background="@drawable/rounded_manage_category"
         android:gravity="center"
         android:id="@+id/txt_category_img"/>
@@ -48,7 +44,6 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
         android:text="Update"
         android:gravity="center"
         android:id="@+id/btn_update"/>
