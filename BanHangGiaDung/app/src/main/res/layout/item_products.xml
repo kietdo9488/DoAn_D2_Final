@@ -20,6 +20,7 @@
 
             android:orientation="vertical">
 
+<<<<<<< HEAD
             <ImageView
                 android:id="@+id/img_product"
                 android:layout_width="100dp"
@@ -52,5 +53,33 @@
                 />
         </LinearLayout>
     </RelativeLayout>
+=======
+               <ImageView
+                   android:id="@+id/img_product"
+                   android:layout_width="100dp"
+                   android:layout_height="100dp"
+                   android:src="@mipmap/ic_launcher"></ImageView>
+
+               <TextView
+                   android:id="@+id/name_product"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:gravity="center"
+                   android:text="Ten san pham"
+                   android:textColor="#101010"
+                   android:textSize="20sp"></TextView>
+
+               <TextView
+                   android:id="@+id/price_product"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textColor="#f20"
+                   android:textSize="17sp"
+                   android:text="100000">
+
+               </TextView>
+           </LinearLayout>
+       </RelativeLayout>
+>>>>>>> origin/master
 
 </androidx.cardview.widget.CardView>

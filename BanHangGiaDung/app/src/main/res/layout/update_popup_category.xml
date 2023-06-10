@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Update category"
+        android:textSize="25sp"
+        android:textColor="#FFF"
+        android:gravity="center"
+        android:background="@color/black"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Category name"
+        android:textSize="20sp"
+        android:gravity="center"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@drawable/rounded_manage_category"
+        android:gravity="center"
+        android:id="@+id/txt_category_name"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Category image"
+        android:textSize="20sp"
+        android:gravity="center"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@drawable/rounded_manage_category"
+        android:gravity="center"
+        android:id="@+id/txt_category_img"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:gravity="center"
+        android:id="@+id/btn_update"/>
+
+
+
+</LinearLayout>
