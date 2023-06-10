@@ -37,12 +37,6 @@
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
                         android:weightSum="3">
-                        <!--                                        <SearchView-->
-                        <!--                        android:id="@+id/search"-->
-                        <!--                        android:layout_width="0dp"-->
-                        <!--                        android:layout_height="40dp"-->
-                        <!--                        android:layout_weight="4"-->
-                        <!--                        android:background="@drawable/custome_searchview" />-->
                         <TextView
                             android:id="@+id/tv_screen"
                             android:layout_width="wrap_content"

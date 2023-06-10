@@ -30,18 +30,18 @@ public class UserFragment extends AbstractFragment  {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View fragmentLayout = null;
         fragmentLayout = inflater.inflate(R.layout.user_layout, container, false);
-        showUsername = fragmentLayout.findViewById(R.id.userName);
-        showEmail = fragmentLayout.findViewById(R.id.email);
-        showPhone = fragmentLayout.findViewById(R.id.phone);
-        showPassword = fragmentLayout.findViewById(R.id.password);
-        editProfile = fragmentLayout.findViewById(R.id.editButton);
-        showUserData();
-        editProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                passUserData();
-            }
-        });
+//        showUsername = fragmentLayout.findViewById(R.id.userName);
+//        showEmail = fragmentLayout.findViewById(R.id.email);
+//        showPhone = fragmentLayout.findViewById(R.id.phone);
+//        showPassword = fragmentLayout.findViewById(R.id.password);
+//        editProfile = fragmentLayout.findViewById(R.id.editButton);
+//        showUserData();
+//        editProfile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                passUserData();
+//            }
+//        });
         return fragmentLayout;
     }
 
