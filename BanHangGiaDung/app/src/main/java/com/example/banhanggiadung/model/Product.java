@@ -8,6 +8,25 @@ public class Product {
     String name;
     int price;
     String image;
+    String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getCategory_id() {
+        return category_id;
+    }
+
+    public void setCategory_id(int category_id) {
+        this.category_id = category_id;
+    }
+
+    int category_id;
 
 
     public int getId() {
@@ -54,19 +73,19 @@ public class Product {
         this.name = name;
         this.price = price;
         this.image = image;
-//        this.description = description;
-//        this.category_id = category_id;
+        this.description = description;
+        this.category_id = category_id;
     }
 
     @Override
     public String toString() {
         return "Product{" +
-//                "id=" + id +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", image='" + image + '\'' +
-//                ", description='" + description + '\'' +
-//                ", category_id=" + category_id +
+                ", description='" + description + '\'' +
+                ", category_id=" + category_id +
                 '}';
     }
 
