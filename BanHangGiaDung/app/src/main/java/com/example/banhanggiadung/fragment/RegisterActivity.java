@@ -29,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Matcher matcher;
     //cau lenh kiem tra email
     private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";// cấu trúc 1 email
-    private static final String PHONE_PATTERN = "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$";// cấu trúc 1 phone
+    private static final String PHONE_PATTERN = "^(0)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$";// cấu trúc 1 phone
     //tao doi tuong filebase
     private FirebaseDatabase database;
     private DatabaseReference reference;
