@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +25,6 @@ public class UserFragment extends AbstractFragment  {
     private TextView showUsername, showEmail, showPhone,  showPassword;
     private TextView titleName;
     private Button editProfile;
-    Intent intent;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -38,41 +36,24 @@ public class UserFragment extends AbstractFragment  {
         showPassword = fragmentLayout.findViewById(R.id.password);
         editProfile = fragmentLayout.findViewById(R.id.editButton);
         showUserData();
-//        editProfile.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                passUserData();
-//            }
-//        });
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                passUserData();
+            }
+        });
         return fragmentLayout;
     }
 
 
     public void showUserData(){
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-
-        DatabaseReference myRef = database.getReference("users");
-
-//        myRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-//                    String objectId = childSnapshot.getKey();
-//                    // Sử dụng objectId
-//                    Log.d("Firebase", "ID của đối tượng: " + objectId);
-//                }
-////                Log.d("Du lieu", "onDataChange: " + product);
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Log.e("Firebase", "Lỗi: " + error.getMessage());
-//            }
-//        });
-//        String usernameUser = database.getStringExtra("userName");
-//        String emailUser = database.getStringExtra("email");
-//        String phonelUser = database.getStringExtra("phone");
-//        String passwordUser = database.getStringExtra("password");
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        DatabaseReference myRef = database.getReference("users");
+//
+//        String usernameUser = intent.getStringExtra("userName");
+//        String emailUser = intent.getStringExtra("email");
+//        String phonelUser = intent.getStringExtra("phone");
+//        String passwordUser = intent.getStringExtra("password");
 //
 //        showUsername.setText(usernameUser);
 //        showEmail.setText(emailUser);
@@ -80,7 +61,7 @@ public class UserFragment extends AbstractFragment  {
 //        showPassword.setText(passwordUser);
     }
 
-//    public void passUserData() {
+    public void passUserData() {
 //        String userUsername = showUsername.getText().toString().trim();
 //
 //        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
@@ -112,5 +93,5 @@ public class UserFragment extends AbstractFragment  {
 //
 //            }
 //        });
-//    }
+    }
 }
