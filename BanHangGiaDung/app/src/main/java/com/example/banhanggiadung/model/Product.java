@@ -8,6 +8,7 @@ public class Product {
     String name;
     int price;
     String image;
+    String description;
 
     public String getDescription() {
         return description;
@@ -25,8 +26,8 @@ public class Product {
         this.category_id = category_id;
     }
 
-    String description;
     int category_id;
+
 
     public int getId() {
         return id;
@@ -79,7 +80,7 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-//                "id=" + id +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", image='" + image + '\'' +

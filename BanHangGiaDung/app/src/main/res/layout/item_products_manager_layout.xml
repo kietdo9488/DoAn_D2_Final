@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="6dp"
+    android:elevation="6dp"
+    app:cardUseCompatPadding="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+        <ImageView
+            android:id="@+id/img_crud"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/ic_launcher_round"
+            android:layout_centerVertical="true"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="90dp">
+            <TextView
+                android:id="@+id/txt_product_name_crud"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name product"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:textColor="#000"
+                />
+            <TextView
+                android:id="@+id/txt_product_cate_crud"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20sp"
+                android:textColor="#000"
+                >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/bt_product_edit_crud"
+                android:layout_width="53dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+
+                android:background="@drawable/baseline_edit_note"></Button>
+
+            <Button
+                android:id="@+id/bt_product_delete_crud"
+                android:layout_width="49dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="0dp"
+                android:background="@drawable/baseline_restore_from_trash_24"
+                ></Button>
+        </LinearLayout>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
