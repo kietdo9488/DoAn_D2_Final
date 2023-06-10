@@ -15,6 +15,18 @@
         android:theme="@style/Theme.RemakeFragment2023"
         tools:targetApi="31">
         <activity
+            android:name=".AddCategory"
+            android:exported="false" />
+        <activity
+            android:name=".ManageUser"
+            android:exported="false" />
+        <activity
+            android:name=".ManageProduct"
+            android:exported="false" />
+        <activity
+            android:name=".ManageCategory"
+            android:exported="false" />
+        <activity
             android:name=".fragment.EditUserActivity"
             android:exported="false"
             android:label="@string/app_name"

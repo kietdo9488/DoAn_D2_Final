@@ -7,30 +7,27 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
-import com.example.banhanggiadung.adapter.ProductAdapter;
+import com.example.banhanggiadung.adapter.CategoryAdapterKiet;
 import com.example.banhanggiadung.fragment.AbstractFragment;
 import com.example.banhanggiadung.fragment.CartFragment;
 import com.example.banhanggiadung.fragment.HomeFragment;
 import com.example.banhanggiadung.fragment.ProductListFragment;
 import com.example.banhanggiadung.fragment.UserFragment;
-import com.example.banhanggiadung.model.Product;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
@@ -49,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentTransaction transaction;
     private int questionId;
     private AbstractFragment fragment = null;
-    private AppCompatActivity fragmentUser = null;
+    private UserFragment fragmentUser = null;
     private BottomNavigationView bottomNavigationView;
 
     DrawerLayout drawerLayout;
@@ -67,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
     private SearchView searchView;
 
     private Toolbar toolbar;
+
+//    fields fragment
+private CategoryAdapterKiet categoryAdapterKiet;
     public static void setMainActivitySave(Activity mainActivitySave) {
         MainActivity.mainActivitySave = mainActivitySave;
     }
@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_layout);
 
 
+        navigationView = findViewById(R.id.nav_main);
 
 
 
@@ -137,6 +138,41 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.nav_product_management:
+//                        Log.d("Tag", "Lay man hinh thanh cong");
+                        Intent intentProductManage = new Intent(getApplicationContext() , ManageProduct.class );
+                        intentProductManage.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        startActivity(intentProductManage);
+                        break;
+                    case R.id.nav_category_management:
+//                        Log.d("Tag", ""+item.getItemId());
+                        Intent intentCategoryManage = new Intent(getApplicationContext(), ManageCategory.class);
+                        intentCategoryManage.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        startActivity(intentCategoryManage);
+                        break;
+                    case R.id.nav_user_management:
+//                        Log.d("Tag", ""+item.getItemId());
+                        Intent intentUserManage = new Intent(getApplicationContext(), ManageUser.class);
+                        intentUserManage.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        startActivity(intentUserManage);
+                        break;
+                    case R.id.nav_logout:
+//                        Log.d("Tag", ""+item.getItemId());
+//                        Intent intentUserManage = new Intent(getApplicationContext(), ManageCategory.class);
+//                        intentUserManage.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+//                        startActivity(intentUserManage);
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
+
 
         searchView.setOnSearchClickListener(new View.OnClickListener() {
             @Override
@@ -150,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
+//
 
     }
 
@@ -227,7 +263,4 @@ public class MainActivity extends AppCompatActivity {
             transaction.commit();
         }
     }
-
-
-
 }
