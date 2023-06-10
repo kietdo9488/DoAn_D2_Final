@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.banhanggiadung.MainActivity;
 import com.example.banhanggiadung.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText loginUsername, loginPassword;
     private Button loginButton;
     private TextView signupRedirectText;
-
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,6 +113,7 @@ public class LoginActivity extends AppCompatActivity {
                         intent.putExtra("email", emailFromDB);
                         intent.putExtra("phone", phonelFromDB);
                         intent.putExtra("password", passwordFromDB);
+                        intent = new Intent(LoginActivity.this, MainActivity.class);
 
                         startActivity(intent);
                     } else {
